@@ -1,0 +1,8 @@
+{
+  "name": "test-nodejs-google-sheets",
+  "packageManager": "yarn@4.5.1",
+  "dependencies": {
+    "@google-cloud/local-auth": "2.1.0",
+    "googleapis": "105"
+  }
+}
