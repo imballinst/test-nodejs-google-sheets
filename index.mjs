@@ -1,4 +1,5 @@
 import path from "path";
+import fs from "fs";
 import process from "process";
 import { google, sheets_v4 } from "googleapis";
 
@@ -7,7 +8,11 @@ const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 const CREDENTIALS_PATH = path.join(process.cwd(), "creds.json");
 
 const auth = new google.auth.GoogleAuth({
-  keyFile: CREDENTIALS_PATH,
+  // Option 1: use JSON content.
+  credentials: JSON.parse(fs.readFileSync(CREDENTIALS_PATH, "utf-8")),
+  //
+  // Option 2: use by path:
+  // keyFile: CREDENTIALS_PATH,
   scopes: SCOPES,
 });
 
